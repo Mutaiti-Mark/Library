@@ -22,7 +22,9 @@ function addBookToArray(title,author,pages,read){
 
 //addBookToArray("3 Army", "Kidoo", 699, "NO")
 
-console.log(bookArray);
+//addBookToArray("Art of Giving", "Skill M0b", 542, "YES")
+
+//console.log(bookArray);
 
 // function that loops through all the book objects in the array and display them on the page
 
@@ -31,6 +33,7 @@ function displayBooks(){
     for(let i=0; i<bookArray.length;i++){
         const bookCard = document.createElement("div")
         bookCard.classList.add("book-card")
+        bookCard.dataset.index = i
         const bookDetails = document.createElement("div")
         bookDetails.classList.add("book-details")
         const bookName = document.createElement("p")
@@ -57,10 +60,39 @@ function displayBooks(){
         delBtn.classList.add("delete")
         delBtn.textContent = "DELETE"
 
+        delBtn.addEventListener("click", ()=>{
+            bookCards.removeChild(bookCard)
+        })
+
         bookCard.append(bookDetails, delBtn)
         bookCards.append(bookCard)
+
     }
 }
 
 displayBooks()
+
+const addBookBtn = document.querySelector(".addBook")
+const dialog = document.querySelector("#bk-form")
+const dialogSubmit = document.querySelector("#submit")
+const form = document.querySelector("form")
+
+addBookBtn.addEventListener("click", ()=>{
+    dialog.showModal()
+})
+
+dialogSubmit.addEventListener("click", ()=> {
+    form.addEventListener("submit", (event)=>{
+        //event.preventDefault()
+        const formData = new FormData(form)
+        const bookObj = Object.fromEntries(formData)
+        console.log(bookObj);
+        
+        bookArray.push(bookObj)
+        bookCards.textContent=""
+        displayBooks()
+        dialog.close()
+        form.reset()
+    })
+})
 
