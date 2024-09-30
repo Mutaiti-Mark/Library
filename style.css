@@ -1,0 +1,118 @@
+@font-face {
+    font-family: "MutFont";
+    src: url(/fonts/aquire-font/Aquire-BW0ox.otf);
+}
+
+body{
+    font-family: "MutFont", Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.header{
+    display: flex;
+    justify-content: space-around;
+    letter-spacing: 0.2em;
+}
+h2{
+    font-size: 40px;
+}
+
+.book-cards{
+    padding: 80px;
+    display: grid;
+    height: 80vh;
+    grid-template: auto / 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.book-card{
+    width: 250px;
+    padding: 10px;
+    height: 250px;
+    border-style: solid;
+    border-color: rgb(158, 190, 186);
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px #7c7878
+}
+
+.book-details{
+    display: grid;
+    grid-template: 50px auto / 1fr 2fr;
+    margin-bottom: 2.3em;
+}
+
+.book-details > *{
+    margin: 0;
+    padding: 10px 0 10px 0;
+}
+
+.book-name{
+    grid-column: span 2;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.delete{
+    color: #1cc49d;
+    background-color: #1b2f31;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5em;
+    width: 7em;
+    font-size: large;
+    font-weight: 600;
+    margin-left: 90px;
+}
+
+
+/* Button copied from internet*/
+
+.addBook{
+    background: white;
+    border: solid 2px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5em;
+    width: 6em;
+    font-size: 1.5em;
+    font-weight: 600;
+    padding: .375em 1.125em;
+  background: hsl(190deg, 30%, 15%);
+  color: hsl(190deg, 10%, 95%);
+  
+  box-shadow: 0 0px 0px hsla(190deg, 15%, 5%, .2);
+  transfrom: translateY(0);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  
+  --dur: .15s;
+  --delay: .15s;
+  --radius: 16px;
+  
+  transition:
+    border-top-left-radius var(--dur) var(--delay) ease-out,
+    border-top-right-radius var(--dur) calc(var(--delay) * 2) ease-out,
+    border-bottom-right-radius var(--dur) calc(var(--delay) * 3) ease-out,
+    border-bottom-left-radius var(--dur) calc(var(--delay) * 4) ease-out,
+    box-shadow calc(var(--dur) * 4) ease-out,
+    transform calc(var(--dur) * 4) ease-out,
+    background calc(var(--dur) * 4) steps(4, jump-end);
+}
+
+.addBook:hover, .addBook:focus{
+    box-shadow: 0 4px 8px hsla(190deg, 15%, 5%, .2);
+  transform: translateY(-4px);
+  background: hsl(230deg, 50%, 45%);
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+}
